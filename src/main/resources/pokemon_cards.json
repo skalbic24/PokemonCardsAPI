@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Charizard",
+    "hp": 150,
+    "rarity": "Rare",
+    "trainerName": "Ash Ketchum",
+    "types": ["Fire", "Flying"]
+  },
+  {
+    "name": "Blastoise",
+    "hp": 140,
+    "rarity": "Rare",
+    "trainerName": "Misty",
+    "types": ["Water"]
+  },
+  {
+    "name": "Pikachu",
+    "hp": 90,
+    "rarity": "Common",
+    "trainerName": "Ash Ketchum",
+    "types": ["Electric"]
+  },
+  {
+    "name": "Gengar",
+    "hp": 130,
+    "rarity": "Uncommon",
+    "trainerName": "Brock",
+    "types": ["Ghost", "Poison"]
+  },
+  {
+    "name": "Machamp",
+    "hp": 160,
+    "rarity": "Uncommon",
+    "trainerName": "Brock",
+    "types": ["Fighting"]
+  }
+]

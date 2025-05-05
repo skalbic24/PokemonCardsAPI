@@ -1,0 +1,29 @@
+# === Java / Maven build artifacts ===
+/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# === Eclipse specific files ===
+.project
+.classpath
+.settings/
+
+# === OS specific files ===
+.DS_Store
+Thumbs.db
+
+# === Log files ===
+*.log
+logs/
+
+# === IDE folders ===
+.idea/                  # IntelliJ
+*.iml
+.vscode/               # VS Code, if used
+
+# === Temporary files ===
+*.tmp
+*.bak
+*.swp
