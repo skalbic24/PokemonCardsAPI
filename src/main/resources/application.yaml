@@ -1,9 +1,10 @@
 spring:
+  config:
+    import: optional:classpath:application-secrets.yml
+
   datasource:
     url: jdbc:mysql://localhost:3306/pokemon_cards_db
-    username: pokemon_user
-    password: pokemon_cards
-    
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
@@ -12,5 +13,5 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
 
   sql:
-   init:
-    mode: never 
+    init:
+      mode: never

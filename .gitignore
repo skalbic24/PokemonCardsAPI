@@ -6,24 +6,39 @@
 *.ear
 
 # === Eclipse specific files ===
-.project
 .classpath
+.project
 .settings/
+.metadata/
+
+# === IntelliJ IDEA ===
+.idea/
+*.iml
+
+# === VS Code ===
+.vscode/
 
 # === OS specific files ===
 .DS_Store
 Thumbs.db
 
-# === Log files ===
+# === Logs and debug ===
 *.log
 logs/
+debug.log
+error.log
 
-# === IDE folders ===
-.idea/                  # IntelliJ
-*.iml
-.vscode/               # VS Code, if used
+# === Swagger / OpenAPI (if generated locally) ===
+swagger-ui/
+.openapi-generator/
+swagger.json
+swagger.yaml
 
-# === Temporary files ===
+# === Temporary/backup files ===
 *.tmp
 *.bak
 *.swp
+*~
+
+# === Environment and sensitive config files ===
+src/main/resources/application-secrets.yml
