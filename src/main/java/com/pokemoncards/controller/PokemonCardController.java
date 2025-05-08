@@ -1,11 +1,13 @@
 package com.pokemoncards.controller;
 
 import com.pokemoncards.entity.PokemonCard;
+import com.pokemoncards.model.PokemonCardRequest;
 import com.pokemoncards.service.PokemonCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/cards")
@@ -15,8 +17,8 @@ public class PokemonCardController {
     private PokemonCardService pokemonCardService;
 
     @PostMapping
-    public PokemonCard createCard(@RequestBody PokemonCard card) {
-        return pokemonCardService.saveCard(card);
+    public PokemonCard createCard(@RequestBody PokemonCardRequest request) {
+        return pokemonCardService.createCardWithTypes(request);
     }
 
     @GetMapping

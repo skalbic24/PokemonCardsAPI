@@ -19,8 +19,10 @@ public class TrainerService {
     }
 
     public Optional<Trainer> findByName(String name) {
-        return trainerDao.findByTrainerName(name);
+        List<Trainer> matches = trainerDao.findByTrainerName(name);
+        return matches.isEmpty() ? Optional.empty() : Optional.of(matches.get(0));
     }
+
 
     public List<Trainer> getAllTrainers() {
         return trainerDao.findAll();

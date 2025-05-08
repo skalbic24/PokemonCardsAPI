@@ -1,7 +1,27 @@
 [
-  { "trainerName": "Ash Ketchum", "region": "Kanto" },
-  { "trainerName": "Misty", "region": "Kanto" },
-  { "trainerName": "Brock", "region": "Pewter" },
-  { "trainerName": "Cynthia", "region": "Sinnoh" },
-  { "trainerName": "Leon", "region": "Galar" }
+  {
+    "trainerName": "Ash Ketchum",
+    "region": "Kanto",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXyTvV_d0-lkmXocriQ8aAJ0pDXJ8SpI4J-Q&s"
+  },
+  {
+    "trainerName": "Misty",
+    "region": "Kanto",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqLFx1mBa2IO0oIYUBAfwoahFiK1IXBJfL0Q&s"
+  },
+  {
+    "trainerName": "Brock",
+    "region": "Pewter",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk9h_aWgA8R-5uhWd5anwgGZ2dtmVCTJt1oQ&s"
+  },
+  {
+    "trainerName": "Cynthia",
+    "region": "Sinnoh",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2YvLW9VUDBpFi_3f5rNTPbmsKK2tf0Ytd3Q&s"
+  },
+  {
+    "trainerName": "Leon",
+    "region": "Galar",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8rLxdOiczeFnNFFlgK5t3YnmmGY_E2MfBCA&s"
+  }
 ]

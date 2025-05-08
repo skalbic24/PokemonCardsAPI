@@ -28,13 +28,19 @@ public class DataLoader implements CommandLineRunner {
         List<Trainer> trainers = mapper.readValue(trainerStream, new TypeReference<>() {});
         Map<String, Trainer> savedTrainers = new HashMap<>();
         for (Trainer trainer : trainers) {
-            Trainer saved;
-            Optional<Trainer> existing = trainerService.findByName(trainer.getTrainerName());
-            if (existing.isPresent()) {
-                saved = existing.get();
-            } else {
-                saved = trainerService.saveTrainer(trainer);
-            }
+        	Trainer saved;
+        	Optional<Trainer> existing = trainerService.findByName(trainer.getTrainerName());
+        	if (existing.isPresent()) {
+        	    saved = existing.get();
+        	} else {
+        	    // explicitly map imageUrl before saving
+        	    Trainer newTrainer = new Trainer();
+        	    newTrainer.setTrainerName(trainer.getTrainerName());
+        	    newTrainer.setRegion(trainer.getRegion());
+        	    newTrainer.setImageUrl(trainer.getImageUrl());
+        	    saved = trainerService.saveTrainer(newTrainer);
+        	}
+
             savedTrainers.put(saved.getTrainerName(), saved);
         }
 
