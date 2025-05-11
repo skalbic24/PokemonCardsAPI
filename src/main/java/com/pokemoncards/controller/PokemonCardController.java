@@ -2,11 +2,13 @@ package com.pokemoncards.controller;
 
 import com.pokemoncards.entity.PokemonCard;
 import com.pokemoncards.model.PokemonCardRequest;
+import com.pokemoncards.model.PokemonCardResponse;
 import com.pokemoncards.service.PokemonCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -17,23 +19,29 @@ public class PokemonCardController {
     private PokemonCardService pokemonCardService;
 
     @PostMapping
-    public PokemonCard createCard(@RequestBody PokemonCardRequest request) {
-        return pokemonCardService.createCardWithTypes(request);
+    public PokemonCardResponse createCard(@RequestBody PokemonCardRequest request) {
+        PokemonCard card = pokemonCardService.createCardWithTypes(request);
+        return pokemonCardService.mapToResponse(card);
     }
 
     @GetMapping
-    public List<PokemonCard> getAllCards() {
-        return pokemonCardService.getAllCards();
+    public List<PokemonCardResponse> getAllCards() {
+        return pokemonCardService.getAllCards().stream()
+            .map(pokemonCardService::mapToResponse)
+            .collect(Collectors.toList());
     }
 
+
     @GetMapping("/{id}")
-    public PokemonCard getCard(@PathVariable Long id) {
-        return pokemonCardService.getCardById(id);
+    public PokemonCardResponse getCard(@PathVariable Long id) {
+        PokemonCard card = pokemonCardService.getCardById(id);
+        return pokemonCardService.mapToResponse(card);
     }
 
     @PutMapping("/{id}")
-    public PokemonCard updateCard(@PathVariable Long id, @RequestBody PokemonCard card) {
-        return pokemonCardService.updateCard(id, card);
+    public PokemonCardResponse updateCard(@PathVariable Long id, @RequestBody PokemonCardRequest request) {
+        PokemonCard updated = pokemonCardService.updateCard(id, request);
+        return pokemonCardService.mapToResponse(updated);
     }
 
     @DeleteMapping("/{id}")

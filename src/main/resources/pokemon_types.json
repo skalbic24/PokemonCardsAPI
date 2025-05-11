@@ -3,5 +3,6 @@
   { "typeName": "Water" },
   { "typeName": "Electric" },
   { "typeName": "Psychic" },
-  { "typeName": "Dragon" }
+  { "typeName": "Dragon" },
+  { "typeName": "Ground" }
 ]

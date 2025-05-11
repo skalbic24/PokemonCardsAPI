@@ -64,8 +64,14 @@ public class DataLoader implements CommandLineRunner {
         List<Map<String, Object>> cards = mapper.readValue(cardStream, new TypeReference<>() {});
         for (Map<String, Object> cardMap : cards) {
             String name = (String) cardMap.get("name");
-            Optional<PokemonCard> existingCard = cardService.findByName(name);
-            if (existingCard.isPresent()) continue; // skip duplicates
+            List<PokemonCard> existingCards = cardService.findByName(name);
+            String trainerName = (String) cardMap.get("trainerName");
+            Trainer trainer = savedTrainers.get(trainerName);
+
+            // Check if a card with same name AND trainer already exists
+            boolean exists = existingCards.stream()
+                .anyMatch(c -> c.getTrainer() != null && c.getTrainer().getTrainerId().equals(trainer.getTrainerId()));
+            if (exists) continue;
 
             PokemonCard card = new PokemonCard();
             card.setName(name);
@@ -73,8 +79,8 @@ public class DataLoader implements CommandLineRunner {
             card.setRarity((String) cardMap.get("rarity"));
 
             // Link Trainer
-            String trainerName = (String) cardMap.get("trainerName");
-            card.setTrainer(savedTrainers.get(trainerName));
+            card.setTrainer(trainer);
+
 
             // Link Types
             List<String> typeNames = mapper.convertValue(cardMap.get("types"), new TypeReference<List<String>>() {});

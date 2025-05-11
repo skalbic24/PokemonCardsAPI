@@ -23,6 +23,7 @@ public class PokemonCard {
     private String name;
     private int hp;
     private String rarity;
+    private String imageUrl;
 
     @ManyToOne
     @JoinColumn(name = "trainer_id")

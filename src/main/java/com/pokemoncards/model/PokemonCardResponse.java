@@ -1,18 +1,14 @@
 package com.pokemoncards.model;
 
-import java.util.List;
-
-
+import java.util.Set;
 import lombok.Data;
-
-//incoming requests(POST/PUT)
-
+//out going response
 @Data
-public class PokemonCardRequest {
+public class PokemonCardResponse {
+    private Long cardId;
     private String name;
     private int hp;
     private String rarity;
     private String imageUrl;
-    private Long trainerId;
-    private List<Long> typeIds;
+    private Set<PokemonTypeDTO> types;
 }
